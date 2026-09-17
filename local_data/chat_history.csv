@@ -1,0 +1,9 @@
+Timestamp,Session ID,User Name,User Phone,User Email,User Query,AI Response,Intent
+2026-09-16 16:20,d3091105-e935-465d-9137-e26499d7637a,,,,Schedule a visit,"I can help you search properties, calculate EMI, schedule a visit, or connect you with an agent. What would you like to do?",schedule_visit
+2026-09-16 16:20,d3091105-e935-465d-9137-e26499d7637a,,,,2 BHK in Pune,"I can help you search properties, calculate EMI, schedule a visit, or connect you with an agent. What would you like to do?",unknown
+2026-09-16 16:20,d3091105-e935-465d-9137-e26499d7637a,,,,Properties under ₹80L,"I can help you search properties, calculate EMI, schedule a visit, or connect you with an agent. What would you like to do?",unknown
+2026-09-16 16:30,31f8ce9a-7121-4279-aa50-39641c3909d9,,,,2 BHK in Pune,I found 4 properties matching your requirements. Take a look below.,property_search
+2026-09-16 16:30,31f8ce9a-7121-4279-aa50-39641c3909d9,,,,Find a property,I found 4 properties matching your requirements. Take a look below.,property_search
+2026-09-16 16:30,31f8ce9a-7121-4279-aa50-39641c3909d9,,,,Properties under ₹80L,I found 4 properties matching your requirements. Take a look below.,property_search
+2026-09-16 16:30,31f8ce9a-7121-4279-aa50-39641c3909d9,,,,Calculate EMI,"Please share the loan amount, interest rate, and tenure so I can calculate your EMI.",emi_calculation
+2026-09-16 16:30,31f8ce9a-7121-4279-aa50-39641c3909d9,,,,Talk to an agent,Sure — share your details and an agent will reach out to you shortly.,contact_agent

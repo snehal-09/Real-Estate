@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EstateEase AI Chatbot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='widget.css') }}">
+</head>
+<body>
+
+<!--
+  This page is intentionally empty except for a placeholder note.
+  In production, drop the widget's HTML block (below), plus
+  widget.css / widget.js, onto ANY existing website to add the
+  EstateEase AI chat button — no other part of this page is required.
+-->
+<main class="host-placeholder">
+  <p>This page hosts only the EstateEase AI chat widget (bottom-right).<br>
+  Embed <code>widget.css</code> + the widget markup + <code>widget.js</code> into any site to reuse it.</p>
+</main>
+
+<!-- ============ FLOATING CHATBOT WIDGET (this is the embeddable part) ============ -->
+<button class="ee-chat-fab" id="chatFab" aria-label="Open EstateEase AI chat">💬</button>
+
+<div class="ee-chat-panel" id="chatPanel">
+  <div class="ee-chat-panel__header">
+    <div class="ee-chat-panel__header-title">
+      <span class="ee-chat-panel__status-dot"></span>
+      <div>
+        <strong>EstateEase AI</strong>
+        <span>Your Real Estate Assistant</span>
+      </div>
+    </div>
+    <button class="ee-chat-panel__close" id="chatPanelClose">&times;</button>
+  </div>
+
+  <div class="ee-chat-panel__quick-actions" id="quickActions">
+    <button data-msg="Find a property">Find a Property</button>
+    <button data-msg="2 BHK in Pune">2 BHK in Pune</button>
+    <button data-msg="Properties under ₹80L">Properties under ₹80L</button>
+    <button data-msg="Calculate EMI">Calculate EMI</button>
+    <button data-msg="Schedule a visit">Schedule a Visit</button>
+    <button data-msg="Talk to an agent">Talk to an Agent</button>
+  </div>
+
+  <div class="ee-chat-panel__messages" id="chatMessages">
+    <div class="ee-chat-msg ee-chat-msg--bot">
+      <p>Hi! I'm EstateEase AI. Tell me what kind of property you're looking for — for example, "2 BHK in Pune under 80 lakh".</p>
+    </div>
+  </div>
+
+  <form class="ee-chat-panel__input" id="chatForm">
+    <input type="text" id="chatInput" placeholder="Type your message..." autocomplete="off">
+    <button type="submit" aria-label="Send">➤</button>
+  </form>
+</div>
+
+<!-- Property details modal (opened when the user taps a property in chat) -->
+<div class="ee-modal" id="detailsModal">
+  <div class="ee-modal__box">
+    <button class="ee-modal__close" id="detailsModalClose">&times;</button>
+    <div id="detailsModalContent"></div>
+  </div>
+</div>
+
+<!-- Lead capture modal (opened for "talk to an agent" intent) -->
+<div class="ee-modal" id="leadModal">
+  <div class="ee-modal__box">
+    <button class="ee-modal__close" id="leadModalClose">&times;</button>
+    <h3>Request a Callback</h3>
+    <p class="ee-modal__hint">Share your details and an agent will reach out to you.</p>
+    <form id="leadForm">
+      <div class="ee-field"><label>Name</label><input type="text" id="lead-name" required></div>
+      <div class="ee-field"><label>Phone</label><input type="tel" id="lead-phone" required></div>
+      <div class="ee-field"><label>Email</label><input type="email" id="lead-email"></div>
+      <div class="ee-field"><label>Requirement</label><textarea id="lead-requirement" rows="3" placeholder="e.g. 2 BHK in Pune under 80 lakh"></textarea></div>
+      <button type="submit" class="ee-btn ee-btn--gold">Submit Request</button>
+      <p class="ee-form-status" id="leadFormStatus"></p>
+    </form>
+  </div>
+</div>
+
+<!-- Visit scheduling modal (opened for "schedule visit" intent) -->
+<div class="ee-modal" id="visitModal">
+  <div class="ee-modal__box">
+    <button class="ee-modal__close" id="visitModalClose">&times;</button>
+    <h3>Schedule a Visit</h3>
+    <p class="ee-modal__hint" id="visitPropertyLabel"></p>
+    <form id="visitForm">
+      <div class="ee-field"><label>Name</label><input type="text" id="visit-name" required></div>
+      <div class="ee-field"><label>Phone</label><input type="tel" id="visit-phone" required></div>
+      <div class="ee-field"><label>Email</label><input type="email" id="visit-email"></div>
+      <div class="ee-field-row">
+        <div class="ee-field"><label>Preferred Date</label><input type="date" id="visit-date" required></div>
+        <div class="ee-field"><label>Preferred Time</label><input type="time" id="visit-time" required></div>
+      </div>
+      <div class="ee-field"><label>Message</label><textarea id="visit-message" rows="2"></textarea></div>
+      <button type="submit" class="ee-btn ee-btn--gold">Schedule Visit</button>
+      <p class="ee-form-status" id="visitFormStatus"></p>
+    </form>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='widget.js') }}"></script>
+</body>
+</html>
